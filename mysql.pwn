@@ -1,4 +1,4 @@
-/*  
+/*	
 
 	MySQL R8 - Example Account Script
 	
@@ -66,7 +66,8 @@ new
 
 //-----------------------------------------------------
 
-main(){}
+main(){
+}
 
 //-----------------------------------------------------
 
@@ -198,8 +199,6 @@ public OnAccountCheck(playerid)
 
 			cache_get_row(0, 1, g_PlayerInfo[playerid][pPass], g_Handle, 130); // whirlpool length + 1
 			cache_get_row(0, 2, g_PlayerInfo[playerid][pSalt], g_Handle, SALT_LENGTH+1);
-
-			printf("Player %d -> Pass: %s -> Salt: %s", playerid, g_PlayerInfo[playerid][pPass], g_PlayerInfo[playerid][pSalt]);
 			
 			ShowDialog(playerid, Show:<Login>, DIALOG_STYLE_PASSWORD, "{1564F5}Login", "Type in your password below to log in.", "Okay", "Cancel");
 		}
