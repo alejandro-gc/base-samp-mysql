@@ -200,11 +200,11 @@ public OnAccountCheck(playerid)
 			cache_get_row(0, 1, g_PlayerInfo[playerid][pPass], g_Handle, 130); // whirlpool length + 1
 			cache_get_row(0, 2, g_PlayerInfo[playerid][pSalt], g_Handle, SALT_LENGTH+1);
 			
-			ShowDialog(playerid, Show:<Login>, DIALOG_STYLE_PASSWORD, "{1564F5}Login", "Type in your password below to log in.", "Okay", "Cancel");
+			ShowDialog(playerid, Show:Login, DIALOG_STYLE_PASSWORD, "{1564F5}Login", "Type in your password below to log in.", "Okay", "Cancel");
 		}
 		
 		else {
-			ShowDialog(playerid, Show:<Register>, DIALOG_STYLE_PASSWORD, "{1564F5}Register", "Type in a password below to register an account.", "Okay", "Cancel");
+			ShowDialog(playerid, Show:Register, DIALOG_STYLE_PASSWORD, "{1564F5}Register", "Type in a password below to register an account.", "Okay", "Cancel");
 		}
 	}
 	return 1;
@@ -215,7 +215,7 @@ public OnAccountCheck(playerid)
 Dialog:Login(playerid, response, listitem, inputtext[])
 {
 	if(!response || !strlen(inputtext)) {
-		return ShowDialog(playerid, Show:<Login>, DIALOG_STYLE_PASSWORD, "{1564F5}Login", "Type in your password below to log in.", "Okay", "Cancel");
+		return ShowDialog(playerid, Show:Login, DIALOG_STYLE_PASSWORD, "{1564F5}Login", "Type in your password below to log in.", "Okay", "Cancel");
 	}
 	
 	new 
@@ -232,7 +232,7 @@ Dialog:Login(playerid, response, listitem, inputtext[])
 		}
 		
 		SendClientMessage(playerid, -1, "SERVER: Invalid password!"),
-		ShowDialog(playerid, Show:<Login>, DIALOG_STYLE_PASSWORD, "{1564F5}Login", "Type in your password below to log in.", "Okay", "Cancel");
+		ShowDialog(playerid, Show:Login, DIALOG_STYLE_PASSWORD, "{1564F5}Login", "Type in your password below to log in.", "Okay", "Cancel");
 	}
 	else {
 		LoadAccount(playerid);
@@ -286,11 +286,11 @@ Dialog:Register(playerid, response, listitem, inputtext[])
 	}
 	
 	if(isnull(inputtext)) {
-		return ShowDialog(playerid, Show:<Register>, DIALOG_STYLE_PASSWORD, "{1564F5}Register", "Type in a password below to register an account.", "Okay", "Cancel");
+		return ShowDialog(playerid, Show:Register, DIALOG_STYLE_PASSWORD, "{1564F5}Register", "Type in a password below to register an account.", "Okay", "Cancel");
 	}
 	
 	if(strlen(inputtext) >= MAX_PASS_LENGTH) {
-		return SendClientMessage(playerid, -1, "SERVER: Password must not be more than 40 characters"), ShowDialog(playerid, Show:<Register>, DIALOG_STYLE_PASSWORD, "{1564F5}Register", "Type in a password below to register an account.", "Okay", "Cancel");
+		return SendClientMessage(playerid, -1, "SERVER: Password must not be more than 40 characters"), ShowDialog(playerid, Show:Register, DIALOG_STYLE_PASSWORD, "{1564F5}Register", "Type in a password below to register an account.", "Okay", "Cancel");
 	}
 	
 	new 
